@@ -2,22 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-import AuthLayout from '~/components/AuthLayout';
-import DefaultLayout from '~/components/DefaultLayout';
-import GlobalStyle from '~/styles/global';
+import AuthLayout from '../components/AuthLayout';
+import DefaultLayout from '../components/DefaultLayout';
 
-export default function RouteWrapper({ component: Component, isPrivate = false, ...rest }) {
-	const signed = false;
+import { store } from '../store';
+
+import GlobalStyle from '../styles/global';
+
+export default function RouteWrapper({
+	component: Component,
+	isPrivate = false,
+	...rest
+}) {
+	const { signed } = store.getState().auth;
 
 	if (!signed && isPrivate) {
-		return <Redirect to='/' />;
+		return <Redirect to="/" />;
 	}
 
 	if (signed && !isPrivate) {
-		return <Redirect to='/dashboard' />;
+		return <Redirect to="/dashboard" />;
 	}
 
-	const Layout = signed ? AuthLayout : DefaultLayout;
+	const Layout = signed ? DefaultLayout : AuthLayout;
 
 	return (
 		<Route
@@ -34,7 +41,8 @@ export default function RouteWrapper({ component: Component, isPrivate = false, 
 
 RouteWrapper.propTypes = {
 	isPrivate: PropTypes.bool,
-	component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
+	component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+		.isRequired
 };
 
 RouteWrapper.defaultProps = {
