@@ -4,14 +4,15 @@ import { Container } from './styles';
 
 import Header from '../Header';
 
-export default function DefaultLayout(props) {
+export default function DefaultLayout({ children }) {
 	return (
 		<Container>
-			<Header>{props.children}</Header>
+			<Header />
+			{children}
 		</Container>
 	);
 }
 
 DefaultLayout.propTypes = {
-	children: PropTypes.element.isRequired
+	children: PropTypes.array.isRequired
 };
