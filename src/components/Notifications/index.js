@@ -70,6 +70,7 @@ export default function Notifications() {
 					{notifications.map(notification => (
 						<Notification
 							id={notification._id}
+							key={notification._id}
 							unread={!notification.read}
 						>
 							<p>{notification.content}</p>

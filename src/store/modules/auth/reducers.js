@@ -18,6 +18,8 @@ export default function auth(state = initialState, action) {
 			};
 		case '@auth/SIGN_FAILURE':
 			return { ...state, loading: false };
+		case '@auth/SIGN_OUT':
+			return { ...state, token: null, signed: false };
 		default:
 			return state;
 	}
