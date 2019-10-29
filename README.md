@@ -1,3 +1,7 @@
+Projeto para estudos utilizando react, redux e saga
+
+<img src="https://raw.githubusercontent.com/Maykerh/gobarber-web/master/examples/screen1.png" width="200" height="200"> <img src="https://raw.githubusercontent.com/Maykerh/gobarber-web/master/examples/screen2.png" width="200" height="200"> <img src="https://raw.githubusercontent.com/Maykerh/gobarber-web/master/examples/screen3.png" width="200" height="200">
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
